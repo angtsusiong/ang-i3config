@@ -285,7 +285,7 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-# exec_always --no-startup-id exec ~/.screenlayout/normal_dual.sh
+exec_always --no-startup-id exec xrandr --output HDMI1 --right-of DP1 --primary
 exec_always --no-startup-id feh --bg-tile ~/Pictures/wall.png
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
