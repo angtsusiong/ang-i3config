@@ -15,13 +15,13 @@ new_float none
 hide_edge_borders none
 
 # change borders
-bindsym $mod+u border none
+# bindsym $mod+u border none
 # bindsym $mod+y border pixel 1
 # bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:OperatorMonoLig Nerd Font Book 14
+font xft:OperatorMonoLig Nerd Font Book 18
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -42,8 +42,8 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+#exec --no-startup-id volumeicon
+#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
@@ -63,10 +63,10 @@ bindsym $mod+F3 exec ranger
 # bindsym $mod+F5 exec terminal -e 'mocp'
 # bindsym $mod+t exec --no-startup-id pkill compton
 # bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot 
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+# bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+# bindsym Print exec --no-startup-id i3-scrot
+# bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+# bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 # bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 # bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -152,16 +152,16 @@ set $ws8 "[3]ﴱ"
 set $ws9 "[4]"
 set $ws10 "[5]"
 
-workspace $ws1 output DP1
-workspace $ws2 output DP1
-workspace $ws3 output DP1
-workspace $ws4 output DP1
-workspace $ws5 output DP1
-workspace $ws6 output HDMI1
-workspace $ws7 output HDMI1
-workspace $ws8 output HDMI1
-workspace $ws9 output HDMI1
-workspace $ws10 output HDMI1
+# workspace $ws1 output DP1
+# workspace $ws2 output DP1
+# workspace $ws3 output DP1
+# workspace $ws4 output DP1
+# workspace $ws5 output DP1
+# workspace $ws6 output HDMI1
+# workspace $ws7 output HDMI1
+# workspace $ws8 output HDMI1
+# workspace $ws9 output HDMI1
+# workspace $ws10 output HDMI1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -237,7 +237,7 @@ for_window [class="Xfburn"] floating enable
 for_window [urgent=latest] focus
 
 # reload the configuration file
-# bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -266,19 +266,10 @@ mode "$mode_system" {
 bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym s resize shrink width 5 px or 5 ppt
         bindsym Shift+d resize grow height 5 px or 5 ppt
         bindsym Shift+s resize shrink height 5 px or 5 ppt
         bindsym d resize grow width 5 px or 5 ppt
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
 
         # exit resize mode: Enter or Escape
         bindsym Return mode "default"
@@ -290,22 +281,22 @@ mode "resize" {
 # bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id manjaro-hello
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+# exec --no-startup-id manjaro-hello
+# exec --no-startup-id nm-applet
+# exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id pamac-tray
+# exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec_always --no-startup-id xautolock -time 20 -locker black
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id exec xrandr --output HDMI1 --right-of DP1
-exec_always --no-startup-id exec xrandr --output HDMI1 --primary
+# exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id fix_xcursor
+# exec_always --no-startup-id exec xrandr --output HDMI1 --right-of DP1
+# exec_always --no-startup-id exec xrandr --output HDMI1 --primary
 # exec_always --no-startup-id feh --bg-tile ~/Pictures/wall.png
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -343,11 +334,9 @@ bar {
   i3bar_command i3bar
   status_command i3status
   position top
-#  output primary
-#  output HDMI1
-#  output DP1
+
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-	tray_output primary
+#	tray_output primary
 #	tray_output eDP1
 
   bindsym button4 nop
@@ -371,7 +360,7 @@ bar {
 }
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -389,7 +378,7 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 10
+gaps inner 14
 gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -402,7 +391,7 @@ gaps outer -2
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-# smart_borders on
+smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 # set $mode_gaps Gaps: (o) outer, (i) inner
@@ -421,7 +410,7 @@ gaps outer -2
 #        bindsym minus gaps inner current minus 5
 #        bindsym 0     gaps inner current set 0
 #
-#        bindsym Shift+plus  gaps inner all plus 5
+#       bindsym Shift+plus  gaps inner all plus 5
 #        bindsym Shift+minus gaps inner all minus 5
 #        bindsym Shift+0     gaps inner all set 0
 #
@@ -432,6 +421,7 @@ gaps outer -2
 #        bindsym plus  gaps outer current plus 5
 #        bindsym minus gaps outer current minus 5
 #        bindsym 0     gaps outer current set 0
+#
 #
 #        bindsym Shift+plus  gaps outer all plus 5
 #        bindsym Shift+minus gaps outer all minus 5
