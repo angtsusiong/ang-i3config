@@ -2,7 +2,7 @@ set $mod Mod1
 new_window none
 new_float none
 hide_edge_borders none
-font xft:OperatorMonoLig Nerd Font Book 14
+font xft:OperatorMonoLig Nerd Font Book 12
 floating_modifier $mod
 
 # start a terminal
@@ -216,11 +216,33 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-exec_always --no-startup-id xautolock -time 20 -locker black
+exec --no-startup-id xautolock -time 20 -locker black
+exec discord
+exec stride
+exec gitkraken
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id exec xrandr --output HDMI1 --right-of DP1
 exec_always --no-startup-id exec xrandr --output HDMI1 --primary
+exec --no-startup-id fcitx
+assign [class="gitkraken"] $ws4 
+assign [class="discord"] $ws5 
+assign [class="stride"] $ws5 
+
+
+set $mode_launch  |  | ﭮ |  |  | 
+mode "$mode_launch" {
+    bindsym c exec chromium; mode "default"
+    bindsym d exec dolphin; mode "default"
+    bindsym s exec spotify; mode "default"
+    bindsym e exec emacs; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym $mod mode "default"
+    bindsym Tab mode "default"
+}
+bindsym $mod+Tab mode "$mode_launch"
+
 
 set_from_resource $term_background background
 set_from_resource $term_foreground foreground
